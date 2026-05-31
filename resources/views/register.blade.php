@@ -23,7 +23,7 @@
     .auth-page {
         font-family: 'Plus Jakarta Sans', sans-serif;
         min-height: 100vh;
-        background: url('/images/office.jpg') center center / cover no-repeat fixed;
+        background: url('{{ asset('images/office.jpg') }}') center center / cover no-repeat fixed;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -218,33 +218,6 @@
         transition: color 0.2s;
     }
 
-    .auth-terms-row {
-        display: flex;
-        align-items: flex-start;
-        gap: 8px;
-        margin: 0.5rem 0 1.5rem;
-        font-size: 0.82rem;
-        color: var(--ink-3);
-        line-height: 1.5;
-    }
-
-    .auth-terms-row input[type="checkbox"] {
-        width: 15px;
-        height: 15px;
-        accent-color: var(--accent);
-        margin-top: 2px;
-        flex-shrink: 0;
-        cursor: pointer;
-    }
-
-    .auth-terms-row a {
-        color: var(--accent);
-        text-decoration: none;
-        font-weight: 500;
-    }
-
-    .auth-terms-row a:hover { text-decoration: underline; }
-
     .auth-btn {
         width: 100%;
         padding: 0.78rem;
@@ -259,6 +232,7 @@
         cursor: pointer;
         transition: background 0.18s, transform 0.12s, box-shadow 0.18s;
         box-shadow: 0 1px 2px rgba(61,107,82,0.2), 0 4px 12px rgba(61,107,82,0.18);
+        margin-top: 0.5rem;
     }
 
     .auth-btn:hover {
@@ -313,16 +287,11 @@
                 <label class="auth-label" for="name">Full Name</label>
                 <div class="auth-field-wrap">
                     <i class="bi bi-person auth-field-icon"></i>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
+                    <input type="text" id="name" name="name"
                         class="auth-input @error('name') is-invalid @enderror"
                         value="{{ old('name') }}"
                         placeholder="Juan Dela Cruz"
-                        autocomplete="name"
-                        required
-                    >
+                        autocomplete="name" required>
                 </div>
                 @error('name')
                 <div class="auth-field-error">
@@ -335,16 +304,11 @@
                 <label class="auth-label" for="email">Email address</label>
                 <div class="auth-field-wrap">
                     <i class="bi bi-envelope auth-field-icon"></i>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
+                    <input type="email" id="email" name="email"
                         class="auth-input @error('email') is-invalid @enderror"
                         value="{{ old('email') }}"
                         placeholder="you@example.com"
-                        autocomplete="email"
-                        required
-                    >
+                        autocomplete="email" required>
                 </div>
                 @error('email')
                 <div class="auth-field-error">
@@ -357,17 +321,13 @@
                 <label class="auth-label" for="password">Password</label>
                 <div class="auth-field-wrap">
                     <i class="bi bi-lock auth-field-icon"></i>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
+                    <input type="password" id="password" name="password"
                         class="auth-input @error('password') is-invalid @enderror"
                         placeholder="Min. 8 characters"
                         autocomplete="new-password"
-                        oninput="authCheckStrength(this.value)"
-                        required
-                    >
-                    <button type="button" class="auth-toggle-pw" onclick="authTogglePw('password', this)" aria-label="Show password">
+                        oninput="authCheckStrength(this.value)" required>
+                    <button type="button" class="auth-toggle-pw"
+                        onclick="authTogglePw('password', this)">
                         <i class="bi bi-eye"></i>
                     </button>
                 </div>
@@ -389,23 +349,19 @@
                 <label class="auth-label" for="password_confirmation">Confirm password</label>
                 <div class="auth-field-wrap">
                     <i class="bi bi-lock-fill auth-field-icon"></i>
-                    <input
-                        type="password"
-                        id="password_confirmation"
+                    <input type="password" id="password_confirmation"
                         name="password_confirmation"
                         class="auth-input"
                         placeholder="Re-enter your password"
-                        autocomplete="new-password"
-                        required
-                    >
-                    <button type="button" class="auth-toggle-pw" onclick="authTogglePw('password_confirmation', this)" aria-label="Show password">
+                        autocomplete="new-password" required>
+                    <button type="button" class="auth-toggle-pw"
+                        onclick="authTogglePw('password_confirmation', this)">
                         <i class="bi bi-eye"></i>
                     </button>
                 </div>
             </div>
 
             <button type="submit" class="auth-btn">Create account</button>
-
         </form>
     </div>
 </div>

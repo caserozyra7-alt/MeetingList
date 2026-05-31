@@ -20,16 +20,16 @@
         --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
     }
 
-    .auth-page {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        min-height: 100vh;
-        background: url('/images/office.jpg') center center / cover no-repeat fixed;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 1.5rem;
-        position: relative;
-    }
+     .auth-page {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+    background: url('{{ asset('images/office.jpg') }}') center center / cover no-repeat fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    position: relative;
+}
 
     .auth-page::before {
         content: '';
